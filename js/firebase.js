@@ -34,8 +34,12 @@ const Auth = {
   init() {
     this.bindEvents();
 
-    // リダイレクト後の結果を処理
-    auth.getRedirectResult().catch(e => {
+    // リダイレクト後の認証結果を処理
+    auth.getRedirectResult().then(result => {
+      if (result && result.user) {
+        this.showApp();
+      }
+    }).catch(e => {
       this.showError(this.errorMessage(e.code));
     });
 
@@ -94,14 +98,16 @@ const Auth = {
   async signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     try {
-      await auth.signInWithPopup(provider);
+      await auth.signInWithRedirect(provider);
     } catch (e) {
       this.showError(this.errorMessage(e.code));
     }
   },
 
   showApp() {
+    if (App._initialized) return;
     const user = auth.currentUser;
+    if (!user) return;
     Store.initUser(user.uid).then(plan => {
       document.getElementById("loginScreen").style.display = "none";
       document.getElementById("mainApp").style.display = "";

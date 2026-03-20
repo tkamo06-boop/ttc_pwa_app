@@ -652,7 +652,7 @@ li.locked {
   height: 32px;
   border-radius: 8px;
   border: none;
-  background: #2a2a30;
+  background: transparent;
   color: #aaa;
   cursor: pointer;
   padding: 0;
@@ -670,7 +670,7 @@ li.locked {
 }
 
 .store-icon-btn.map {
-  background: #2a2a30;
+  background: transparent;
   color: #aaa;
   flex-shrink: 0;
 }

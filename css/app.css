@@ -313,6 +313,11 @@ input[type="checkbox"]{
   color: #ff9900;
 }
 
+.remember-wrap {
+  width: 100%;
+  text-align: left;
+}
+
 .remember-label {
   display: inline-flex;
   align-items: center;

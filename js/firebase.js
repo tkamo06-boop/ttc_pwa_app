@@ -109,21 +109,16 @@ const Auth = {
     const user = auth.currentUser;
     if (!user) return;
 
+    // Firestoreを待たずに即座にログイン画面を非表示
+    App._initialized = true;
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("mainApp").style.display = "";
+
     Store.initUser(user.uid).then(plan => {
-      document.getElementById("loginScreen").style.display = "none";
-      document.getElementById("mainApp").style.display = "";
-      if (!App._initialized) {
-        App._initialized = true;
-        App.init(user.uid, plan);
-      }
+      App.init(user.uid, plan);
     }).catch(e => {
       console.warn("Store.initUser failed, falling back to free:", e);
-      document.getElementById("loginScreen").style.display = "none";
-      document.getElementById("mainApp").style.display = "";
-      if (!App._initialized) {
-        App._initialized = true;
-        App.init(user.uid, "free");
-      }
+      App.init(user.uid, "free");
     });
   },
 

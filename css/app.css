@@ -323,6 +323,8 @@ input[type="checkbox"]{
   user-select: none;
   align-self: flex-start;
   white-space: nowrap;
+  text-align: left;
+  direction: ltr;
 }
 
 .remember-label input[type="checkbox"] {

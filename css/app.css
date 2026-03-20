@@ -321,6 +321,7 @@ input[type="checkbox"]{
   color: #888;
   cursor: pointer;
   user-select: none;
+  align-self: flex-start;
 }
 
 .remember-label input[type="checkbox"] {

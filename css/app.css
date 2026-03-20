@@ -634,28 +634,37 @@ li.locked {
 
 .store-link-btn {
   flex: 1;
-  padding: 8px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border-radius: 10px;
   border: none;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   cursor: pointer;
-  text-align: center;
+  background: #2a2a30;
+  color: #ccc;
+}
+
+.store-link-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 .store-link-btn.ec {
-  background: #ff9900;
-  color: #000;
+  background: #ff990022;
+  color: #ff9900;
+  border: 1px solid #ff990055;
 }
 
-.store-link-btn.web {
-  background: #2a2a30;
-  color: #ccc;
-}
-
-.store-link-btn.map {
-  background: #2a2a30;
-  color: #ccc;
+.store-link-btn:disabled {
+  background: #1a1a1f;
+  color: #333;
+  cursor: default;
+  border: 1px solid #222;
 }
 
 /* ===== FOOTER ===== */

@@ -120,6 +120,7 @@ const App = {
 
   async toggleOwned(id, li) {
     if (this.state.owned.has(id)) {
+      if (!confirm("所持を解除しますか？")) return;
       this.state.owned.delete(id);
       li.classList.remove("owned");
       if (this.state.plan === "paid") {

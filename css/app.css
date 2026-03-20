@@ -402,6 +402,70 @@ input[type="checkbox"]{
   text-decoration: none;
 }
 
+/* ===== CONFIRM SHEET ===== */
+.confirm-sheet {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: flex-end;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.confirm-sheet.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.confirm-body {
+  width: 100%;
+  background: #1a1a1f;
+  border-radius: 16px 16px 0 0;
+  padding: 24px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+
+.confirm-sheet.active .confirm-body {
+  transform: translateY(0);
+}
+
+.confirm-msg {
+  text-align: center;
+  font-size: 15px;
+  color: #ccc;
+  margin: 0 0 6px;
+}
+
+.confirm-btn-ok {
+  width: 100%;
+  padding: 14px;
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirm-btn-cancel {
+  width: 100%;
+  padding: 14px;
+  background: #2a2a30;
+  color: #aaa;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 /* ===== LOCK (PREMIUM) ===== */
 li.locked {
   opacity: 0.35;

@@ -120,7 +120,7 @@ const App = {
 
   async toggleOwned(id, li) {
     if (this.state.owned.has(id)) {
-      if (!confirm("所持を解除しますか？")) return;
+      if (!await this.showConfirm("所持を解除しますか？")) return;
       this.state.owned.delete(id);
       li.classList.remove("owned");
       if (this.state.plan === "paid") {
@@ -170,6 +170,23 @@ const App = {
     const percent = Math.round((ownedCount / total) * 100);
     this.dom.progressText.textContent = percent + "%";
     this.dom.progressFill.style.width = percent + "%";
+  },
+
+  showConfirm(msg) {
+    return new Promise(resolve => {
+      const sheet = document.getElementById("confirmSheet");
+      document.querySelector(".confirm-msg").textContent = msg;
+      sheet.classList.add("active");
+
+      const done = result => {
+        sheet.classList.remove("active");
+        resolve(result);
+      };
+
+      document.getElementById("confirmOk").addEventListener("click", () => done(true), { once: true });
+      document.getElementById("confirmCancel").addEventListener("click", () => done(false), { once: true });
+      sheet.addEventListener("click", e => { if (e.target === sheet) done(false); }, { once: true });
+    });
   },
 
   saveState() {

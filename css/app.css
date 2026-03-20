@@ -147,6 +147,8 @@ input[type="checkbox"]{
   border:none;
   color:#aaa;
   font-size:13px;
+  padding:12px 24px;
+  cursor:pointer;
 }
 
 .bottom-nav button:active{

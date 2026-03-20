@@ -584,6 +584,9 @@ li.locked {
   background: #1a1a1f;
   border-radius: 12px;
   padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .store-item-header {
@@ -631,7 +634,6 @@ li.locked {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 6px;
 }
 
 .store-name-icons {
@@ -681,7 +683,6 @@ li.locked {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
 }
 
 .store-address {

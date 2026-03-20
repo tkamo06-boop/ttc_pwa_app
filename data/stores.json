@@ -76,11 +76,11 @@
       "name_kana": "ボイラーミニチュアズ",
       "area": "北海道",
       "address": "北海道札幌市北区新川7条16丁目709-1",
-      "lat": 43.1181,
-      "lng": 141.2993,
+      "lat": 43.118127,
+      "lng": 141.2968885,
       "url": "http://boiler.work/",
       "ec_url": "https://boilerstore.online/",
-      "map_url": "https://maps.google.com/?q=北海道札幌市北区新川7条16丁目709-1",
+      "map_url": "https://maps.app.goo.gl/9uGa65F1dZkcQmRs8",
       "waves": ["W1", "W2", "W3"],
       "note": ""
     }

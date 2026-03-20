@@ -94,7 +94,7 @@ const Auth = {
   async signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     try {
-      await auth.signInWithRedirect(provider);
+      await auth.signInWithPopup(provider);
     } catch (e) {
       this.showError(this.errorMessage(e.code));
     }

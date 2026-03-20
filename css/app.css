@@ -322,9 +322,9 @@ input[type="checkbox"]{
   cursor: pointer;
   user-select: none;
   align-self: flex-start;
+  justify-content: flex-start;
   white-space: nowrap;
   text-align: left;
-  direction: ltr;
 }
 
 .remember-label input[type="checkbox"] {

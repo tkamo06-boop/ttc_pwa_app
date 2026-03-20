@@ -216,6 +216,149 @@ input[type="checkbox"]{
   transform:scale(0.9);
 }
 
+/* ===== LOGIN SCREEN ===== */
+.login-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: #0f0f12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  font-size: 11px;
+  opacity: 0.4;
+  letter-spacing: 2px;
+  margin-top: -10px;
+}
+
+.auth-error {
+  color: #ff5555;
+  font-size: 12px;
+  min-height: 16px;
+  text-align: center;
+}
+
+#authForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#authForm input {
+  width: 100%;
+  background: #1a1a1f;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#authForm input:focus {
+  border-color: #ff9900;
+}
+
+.auth-btn-primary {
+  width: 100%;
+  background: #ff9900;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.auth-btn-primary:active {
+  opacity: 0.85;
+}
+
+.auth-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+  font-size: 12px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #333;
+}
+
+.auth-btn-google {
+  width: 100%;
+  background: #1a1a1f;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  padding: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.auth-btn-google:active {
+  border-color: #ff9900;
+}
+
+.auth-switch {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #ff9900;
+  text-decoration: none;
+}
+
+/* ===== LOGOUT BUTTON ===== */
+.logout-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logout-btn:active {
+  color: #ff9900;
+}
+
 /* ===== FOOTER ===== */
 .app-footer {
   text-align: center;

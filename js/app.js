@@ -1,7 +1,4 @@
 
-window.onerror = function(msg, url, line, col, error) {
-  alert("JS Error: " + msg);
-};
 const App = {
 
   state: {
@@ -184,8 +181,6 @@ hideSplash(){
   }
   
 };
-window.addEventListener("load", ()=> {
-  App.init();
-});
+App._initialized = false;
 window.setType = (...args) => App.setType(...args);
 window.setWave = (...args) => App.setWave(...args);

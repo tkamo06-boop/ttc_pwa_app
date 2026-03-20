@@ -7,7 +7,9 @@ const Stores = {
   },
 
   async open(waveFilter) {
-    document.getElementById("storeScreen").style.display = "flex";
+    const screen = document.getElementById("storeScreen");
+    screen.style.display = "flex";
+    requestAnimationFrame(() => screen.classList.add("active"));
     document.getElementById("storeList").innerHTML = "";
     document.getElementById("storeLocating").style.display = "block";
 
@@ -26,7 +28,9 @@ const Stores = {
   },
 
   close() {
-    document.getElementById("storeScreen").style.display = "none";
+    const screen = document.getElementById("storeScreen");
+    screen.classList.remove("active");
+    setTimeout(() => { screen.style.display = "none"; }, 300);
   },
 
   getLocation() {

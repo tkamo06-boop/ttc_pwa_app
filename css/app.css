@@ -553,10 +553,16 @@ li.locked {
   position: fixed;
   inset: 0;
   background: #0f0f12;
-  z-index: 100;
+  z-index: 300;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.store-screen.active {
+  transform: translateY(0);
 }
 
 .store-header {

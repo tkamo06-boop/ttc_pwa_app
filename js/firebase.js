@@ -34,22 +34,21 @@ const Auth = {
   init() {
     this.bindEvents();
 
-    // リダイレクト後の認証結果を処理
-    auth.getRedirectResult().then(result => {
-      if (result && result.user) {
-        this.showApp();
-      }
-    }).catch(e => {
-      this.showError(this.errorMessage(e.code));
-    });
-
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        this.showApp();
-      } else {
-        this.showLogin();
-      }
-    });
+    // getRedirectResult() を先に完了させてから onAuthStateChanged を登録する
+    // （先に登録すると null が来てログイン画面が表示されてしまうため）
+    auth.getRedirectResult()
+      .catch(e => {
+        if (e.code) this.showError(this.errorMessage(e.code));
+      })
+      .finally(() => {
+        auth.onAuthStateChanged(user => {
+          if (user) {
+            this.showApp();
+          } else {
+            this.showLogin();
+          }
+        });
+      });
   },
 
   bindEvents() {

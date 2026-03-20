@@ -285,6 +285,51 @@ input[type="checkbox"]{
   border-color: #ff9900;
 }
 
+.password-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrap input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.password-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.password-eye:hover {
+  color: #ff9900;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-label input[type="checkbox"] {
+  accent-color: #ff9900;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
 .auth-btn-primary {
   width: 100%;
   background: #ff9900;

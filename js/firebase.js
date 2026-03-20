@@ -59,6 +59,26 @@ const Auth = {
     document.getElementById("logoutBtn").addEventListener("click", () => {
       auth.signOut();
     });
+
+    // 目アイコン：パスワード表示/非表示
+    document.getElementById("togglePassword").addEventListener("click", () => {
+      const input = document.getElementById("authPassword");
+      const icon = document.getElementById("eyeIcon");
+      if (input.type === "password") {
+        input.type = "text";
+        icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>';
+      } else {
+        input.type = "password";
+        icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+      }
+    });
+
+    // メールアドレスを保存済みなら復元
+    const savedEmail = localStorage.getItem("ttcSavedEmail");
+    if (savedEmail) {
+      document.getElementById("authEmail").value = savedEmail;
+      document.getElementById("rememberMe").checked = true;
+    }
   },
 
   toggleMode() {
@@ -81,6 +101,12 @@ const Auth = {
         await auth.signInWithEmailAndPassword(email, password);
       } else {
         await auth.createUserWithEmailAndPassword(email, password);
+      }
+      // ログイン成功後にメールを保存/削除
+      if (document.getElementById("rememberMe").checked) {
+        localStorage.setItem("ttcSavedEmail", email);
+      } else {
+        localStorage.removeItem("ttcSavedEmail");
       }
     } catch (e) {
       this.showError(this.errorMessage(e.code));

@@ -68,7 +68,10 @@
     <div class="title-row">
       <span>TWO THIN COATS</span>
       <span id="progressText">0%</span>
-      <button id="logoutBtn" class="logout-btn">ログアウト</button>
+      <div class="header-actions">
+        <button id="storeBtn" class="store-btn">購入</button>
+        <button id="logoutBtn" class="logout-btn">ログアウト</button>
+      </div>
     </div>
     <div class="progress-bar">
       <div id="progressFill"></div>
@@ -104,6 +107,16 @@
 
 </div><!-- /mainApp -->
 
+<!-- 販売店一覧画面 -->
+<div id="storeScreen" class="store-screen" style="display:none">
+  <div class="store-header">
+    <button id="storeBackBtn" class="store-back-btn">&#8592;</button>
+    <span class="store-title">取扱販売店</span>
+  </div>
+  <div id="storeLocating" class="store-locating">現在地を取得中…</div>
+  <ul id="storeList" class="store-list"></ul>
+</div>
+
 <div id="confirmSheet" class="confirm-sheet">
   <div class="confirm-body">
     <p class="confirm-msg"></p>
@@ -117,7 +130,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
-['js/data.js','js/app.js','js/firebase.js','js/firestore.js'].forEach(function(s){
+['js/data.js','js/app.js','js/firebase.js','js/firestore.js','js/stores.js'].forEach(function(s){
   document.write('<script src="'+s+'?v='+_V+'"><\/script>');
 });
 </script>

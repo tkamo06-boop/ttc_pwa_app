@@ -22,6 +22,7 @@ const App = {
     await this.loadState();
     this.render();
     this.updateProgress();
+    Stores.init();
   },
 
   hideSplash() {

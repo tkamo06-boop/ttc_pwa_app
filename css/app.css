@@ -493,6 +493,27 @@ li.locked {
 }
 
 /* ===== LOGOUT BUTTON ===== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.store-btn {
+  background: #ff9900;
+  border: none;
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.store-btn:active {
+  opacity: 0.8;
+}
+
 .logout-btn {
   background: none;
   border: none;
@@ -504,6 +525,137 @@ li.locked {
 
 .logout-btn:active {
   color: #ff9900;
+}
+
+/* ===== STORE SCREEN ===== */
+.store-screen {
+  position: fixed;
+  inset: 0;
+  background: #0f0f12;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.store-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #222;
+  flex-shrink: 0;
+}
+
+.store-back-btn {
+  background: none;
+  border: none;
+  color: #ff9900;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+}
+
+.store-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.store-locating {
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  padding: 20px;
+}
+
+.store-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.store-item {
+  background: #1a1a1f;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.store-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.store-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.store-distance {
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.store-area {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.store-waves {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.wave-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #2a2a30;
+  color: #ff9900;
+  border: 1px solid #ff990044;
+}
+
+.store-links {
+  display: flex;
+  gap: 8px;
+}
+
+.store-link-btn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.store-link-btn.ec {
+  background: #ff9900;
+  color: #000;
+}
+
+.store-link-btn.web {
+  background: #2a2a30;
+  color: #ccc;
+}
+
+.store-link-btn.map {
+  background: #2a2a30;
+  color: #ccc;
 }
 
 /* ===== FOOTER ===== */

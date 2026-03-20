@@ -10,6 +10,7 @@
       "lng": 137.5017,
       "url": "https://www.hobbystudio-aishindo.com/",
       "ec_url": "https://www.hobbystudio-onlineshop-aishindo.com/product-list/491",
+      "waves": ["W1", "W2", "W3"],
       "note": ""
     },
     {
@@ -22,6 +23,7 @@
       "lng": 139.7392,
       "url": "https://www.giant-hobby.com/",
       "ec_url": "https://shop.giant-hobby.com/shopbrand/ct272/",
+      "waves": ["W1", "W2", "W3"],
       "note": ""
     },
     {
@@ -33,7 +35,8 @@
       "lat": 35.7016,
       "lng": 139.7716,
       "url": "https://arrows-llc.com/",
-      "ec_url": "https://hobby-shop-arrows.square.site/",
+      "ec_url": null,
+      "waves": ["W1", "W2"],
       "note": ""
     },
     {
@@ -46,6 +49,7 @@
       "lng": 131.4807,
       "url": null,
       "ec_url": null,
+      "waves": ["W1", "W2", "W3"],
       "note": ""
     },
     {
@@ -58,6 +62,7 @@
       "lng": 135.2161,
       "url": "https://torayama-ltd.com/",
       "ec_url": "https://torayama-ltd.com/?mode=cate&cbid=2923427&csid=0&sort=n",
+      "waves": ["W1", "W2", "W3"],
       "note": ""
     }
   ]

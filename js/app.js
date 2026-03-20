@@ -14,11 +14,14 @@ const App = {
     this.state.plan = plan || "free";
     this.hideSplash();
     this.cacheDOM();
-    this.bindEvents();
+    if (!this._eventsBound) {
+      this.bindEvents();
+      this.bindWaveButtons();
+      this._eventsBound = true;
+    }
     await this.loadState();
     this.render();
     this.updateProgress();
-    this.bindWaveButtons();
   },
 
   hideSplash() {
@@ -215,5 +218,6 @@ const App = {
 };
 
 App._initialized = false;
+App._eventsBound = false;
 window.setType = (...args) => App.setType(...args);
 window.setWave = (...args) => App.setWave(...args);

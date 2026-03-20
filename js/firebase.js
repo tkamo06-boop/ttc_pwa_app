@@ -34,30 +34,14 @@ const Auth = {
   init() {
     this.bindEvents();
 
-    // getRedirectResult() を先に完了させてから onAuthStateChanged を登録する
-    // （先に登録すると null が来てログイン画面が表示されてしまうため）
-    auth.getRedirectResult()
-      .then(result => {
-        if (result && result.user) {
-          console.log("[Auth] redirect成功:", result.user.email);
-        } else {
-          console.log("[Auth] redirectなし（通常起動）");
-        }
-      })
-      .catch(e => {
-        console.error("[Auth] getRedirectResult エラー:", e.code, e.message);
-        this.showError(this.errorMessage(e.code, e.message));
-      })
-      .finally(() => {
-        auth.onAuthStateChanged(user => {
-          console.log("[Auth] onAuthStateChanged:", user ? user.email : "null");
-          if (user) {
-            this.showApp(user);
-          } else {
-            this.showLogin();
-          }
-        });
-      });
+    auth.onAuthStateChanged(user => {
+      console.log("[Auth] onAuthStateChanged:", user ? user.email : "null");
+      if (user) {
+        this.showApp(user);
+      } else {
+        this.showLogin();
+      }
+    });
   },
 
   bindEvents() {
@@ -106,7 +90,7 @@ const Auth = {
   async signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     try {
-      await auth.signInWithRedirect(provider);
+      await auth.signInWithPopup(provider);
     } catch (e) {
       this.showError(this.errorMessage(e.code));
     }

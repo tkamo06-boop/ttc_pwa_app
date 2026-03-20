@@ -175,29 +175,41 @@ const App = {
   async loadState() {
     if (this.state.plan === "paid" && this.state.userId) {
       try {
-        this.state.owned = await Store.loadPaints(this.state.userId);
+        const firestoreOwned = await Store.loadPaints(this.state.userId);
+
+        if (firestoreOwned.size === 0) {
+          // Firestoreが空 → localStorageにデータがあれば移行
+          const localOwned = this.readLocalStorage();
+          if (localOwned.size > 0) {
+            await Store.migrateFromLocal(this.state.userId, localOwned);
+            this.state.owned = localOwned;
+            localStorage.removeItem("ttcState");
+          } else {
+            this.state.owned = firestoreOwned;
+          }
+        } else {
+          this.state.owned = firestoreOwned;
+        }
       } catch (e) {
         console.warn("Firestore load error:", e);
-        this.loadFromLocalStorage();
+        this.state.owned = this.readLocalStorage();
       }
     } else {
-      this.loadFromLocalStorage();
+      this.state.owned = this.readLocalStorage();
     }
   },
 
-  loadFromLocalStorage() {
+  readLocalStorage() {
     const saved = localStorage.getItem("ttcState");
-    if (!saved) return;
+    if (!saved) return new Set();
     try {
       const parsed = JSON.parse(saved);
-      if (parsed.owned && Array.isArray(parsed.owned)) {
-        this.state.owned = new Set(parsed.owned);
-      } else if (Array.isArray(parsed)) {
-        this.state.owned = new Set(parsed);
-      }
+      if (parsed.owned && Array.isArray(parsed.owned)) return new Set(parsed.owned);
+      if (Array.isArray(parsed)) return new Set(parsed);
     } catch (e) {
       console.warn("State parse error:", e);
     }
+    return new Set();
   }
 
 };

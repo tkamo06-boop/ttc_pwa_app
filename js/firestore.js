@@ -36,6 +36,16 @@ const Store = {
 
   async deletePaint(userId, paintId) {
     await this.col("users").doc(userId).collection("paints").doc(String(paintId)).delete();
+  },
+
+  async migrateFromLocal(userId, ownedSet) {
+    const batch = firebase.firestore().batch();
+    const ts = firebase.firestore.FieldValue.serverTimestamp();
+    ownedSet.forEach(paintId => {
+      const ref = this.col("users").doc(userId).collection("paints").doc(String(paintId));
+      batch.set(ref, { owned: true, updatedAt: ts });
+    });
+    await batch.commit();
   }
 
 };

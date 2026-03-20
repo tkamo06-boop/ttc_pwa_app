@@ -108,12 +108,21 @@ const Auth = {
     if (App._initialized) return;
     const user = auth.currentUser;
     if (!user) return;
+
     Store.initUser(user.uid).then(plan => {
       document.getElementById("loginScreen").style.display = "none";
       document.getElementById("mainApp").style.display = "";
       if (!App._initialized) {
         App._initialized = true;
         App.init(user.uid, plan);
+      }
+    }).catch(e => {
+      console.warn("Store.initUser failed, falling back to free:", e);
+      document.getElementById("loginScreen").style.display = "none";
+      document.getElementById("mainApp").style.display = "";
+      if (!App._initialized) {
+        App._initialized = true;
+        App.init(user.uid, "free");
       }
     });
   },

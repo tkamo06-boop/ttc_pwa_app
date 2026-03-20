@@ -37,13 +37,22 @@ const Auth = {
     // getRedirectResult() を先に完了させてから onAuthStateChanged を登録する
     // （先に登録すると null が来てログイン画面が表示されてしまうため）
     auth.getRedirectResult()
+      .then(result => {
+        if (result && result.user) {
+          console.log("[Auth] redirect成功:", result.user.email);
+        } else {
+          console.log("[Auth] redirectなし（通常起動）");
+        }
+      })
       .catch(e => {
-        if (e.code) this.showError(this.errorMessage(e.code));
+        console.error("[Auth] getRedirectResult エラー:", e.code, e.message);
+        this.showError(this.errorMessage(e.code, e.message));
       })
       .finally(() => {
         auth.onAuthStateChanged(user => {
+          console.log("[Auth] onAuthStateChanged:", user ? user.email : "null");
           if (user) {
-            this.showApp();
+            this.showApp(user);
           } else {
             this.showLogin();
           }
@@ -103,9 +112,9 @@ const Auth = {
     }
   },
 
-  showApp() {
+  showApp(user) {
     if (App._initialized) return;
-    const user = auth.currentUser;
+    if (!user) user = auth.currentUser;
     if (!user) return;
 
     // Firestoreを待たずに即座にログイン画面を非表示
@@ -142,7 +151,7 @@ const Auth = {
     document.getElementById("authError").textContent = "";
   },
 
-  errorMessage(code) {
+  errorMessage(code, fallback) {
     const map = {
       "auth/user-not-found": "メールアドレスが見つかりません",
       "auth/wrong-password": "パスワードが間違っています",
@@ -151,8 +160,12 @@ const Auth = {
       "auth/invalid-email": "メールアドレスの形式が正しくありません",
       "auth/weak-password": "パスワードは6文字以上にしてください",
       "auth/popup-closed-by-user": "ログインがキャンセルされました",
+      "auth/redirect-cancelled-by-user": "ログインがキャンセルされました",
+      "auth/unauthorized-domain": "このドメインはFirebaseに未登録です（Consoleで要追加）",
+      "auth/operation-not-allowed": "このログイン方法は無効です",
+      "auth/network-request-failed": "ネットワークエラーが発生しました",
     };
-    return map[code] || "エラーが発生しました";
+    return map[code] || (fallback ? `エラー: ${fallback}` : "エラーが発生しました");
   }
 };
 

@@ -3,11 +3,10 @@ const Stores = {
   data: null,
 
   async init() {
-    document.getElementById("storeBtn").addEventListener("click", () => this.open());
     document.getElementById("storeBackBtn").addEventListener("click", () => this.close());
   },
 
-  async open() {
+  async open(waveFilter) {
     document.getElementById("storeScreen").style.display = "flex";
     document.getElementById("storeList").innerHTML = "";
     document.getElementById("storeLocating").style.display = "block";
@@ -17,9 +16,13 @@ const Stores = {
       this.data = (await res.json()).stores;
     }
 
+    const stores = waveFilter
+      ? this.data.filter(s => s.waves.includes(waveFilter))
+      : this.data;
+
     this.getLocation()
-      .then(pos => this.render(this.data, pos))
-      .catch(() => this.render(this.data, null));
+      .then(pos => this.render(stores, pos))
+      .catch(() => this.render(stores, null));
   },
 
   close() {

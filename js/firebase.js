@@ -119,6 +119,12 @@ const Auth = {
   },
 
   showLogin() {
+    // 次回ログイン時に再初期化できるようリセット
+    App._initialized = false;
+    App.state.owned = new Set();
+    App.state.userId = null;
+    App.state.plan = "free";
+
     const splash = document.getElementById("bootSplash");
     if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
     document.getElementById("loginScreen").style.display = "flex";

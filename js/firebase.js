@@ -95,12 +95,15 @@ const Auth = {
   },
 
   showApp() {
-    document.getElementById("loginScreen").style.display = "none";
-    document.getElementById("mainApp").style.display = "";
-    if (!App._initialized) {
-      App._initialized = true;
-      App.init();
-    }
+    const user = auth.currentUser;
+    Store.initUser(user.uid).then(plan => {
+      document.getElementById("loginScreen").style.display = "none";
+      document.getElementById("mainApp").style.display = "";
+      if (!App._initialized) {
+        App._initialized = true;
+        App.init(user.uid, plan);
+      }
+    });
   },
 
   showLogin() {

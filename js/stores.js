@@ -9,6 +9,7 @@ const Stores = {
   async open(waveFilter) {
     const screen = document.getElementById("storeScreen");
     screen.style.display = "flex";
+    document.body.style.overflow = "hidden";
     requestAnimationFrame(() => screen.classList.add("active"));
     document.getElementById("storeList").innerHTML = "";
     document.getElementById("storeLocating").style.display = "block";
@@ -30,6 +31,7 @@ const Stores = {
   close() {
     const screen = document.getElementById("storeScreen");
     screen.classList.remove("active");
+    document.body.style.overflow = "";
     setTimeout(() => { screen.style.display = "none"; }, 300);
   },
 

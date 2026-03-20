@@ -1,0 +1,64 @@
+{
+  "stores": [
+    {
+      "id": 1,
+      "name": "ホビースタジオ愛新堂",
+      "name_kana": "ホビースタジオアイシンドウ",
+      "area": "愛知県",
+      "address": "愛知県新城市片山字西野畑545 スギ薬局新城店2階",
+      "lat": 34.9033,
+      "lng": 137.5017,
+      "url": "https://www.hobbystudio-aishindo.com/",
+      "ec_url": "https://www.hobbystudio-onlineshop-aishindo.com/product-list/491",
+      "note": ""
+    },
+    {
+      "id": 2,
+      "name": "ジャイアントホビー",
+      "name_kana": "ジャイアントホビー",
+      "area": "東京都",
+      "address": "東京都文京区千石4-38-10 馬場ビル2F",
+      "lat": 35.7297,
+      "lng": 139.7392,
+      "url": "https://www.giant-hobby.com/",
+      "ec_url": "https://shop.giant-hobby.com/shopbrand/ct272/",
+      "note": ""
+    },
+    {
+      "id": 3,
+      "name": "HOBBY SHOP Arrows",
+      "name_kana": "ホビーショップアローズ",
+      "area": "東京都",
+      "address": "東京都千代田区外神田6-5-11 長谷川ビル2F",
+      "lat": 35.7016,
+      "lng": 139.7716,
+      "url": "https://arrows-llc.com/",
+      "ec_url": "https://hobby-shop-arrows.square.site/",
+      "note": ""
+    },
+    {
+      "id": 4,
+      "name": "OKIMOKEI",
+      "name_kana": "オキモケイ",
+      "area": "山口県",
+      "address": "山口県山口市吉敷下東2-6-5 リアライズV 105",
+      "lat": 34.1851,
+      "lng": 131.4807,
+      "url": null,
+      "ec_url": null,
+      "note": ""
+    },
+    {
+      "id": 5,
+      "name": "Torayama",
+      "name_kana": "トラヤマ",
+      "area": "和歌山県",
+      "address": "和歌山県和歌山市園部1001-6",
+      "lat": 34.2604,
+      "lng": 135.2161,
+      "url": "https://torayama-ltd.com/",
+      "ec_url": "https://torayama-ltd.com/?mode=cate&cbid=2923427&csid=0&sort=n",
+      "note": ""
+    }
+  ]
+}

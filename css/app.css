@@ -314,18 +314,24 @@ input[type="checkbox"]{
 }
 
 .remember-wrap {
-  width: 100%;
   text-align: left;
 }
 
-.remember-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.remember-wrap input[type="checkbox"] {
+  accent-color: #ff9900;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.remember-text {
   font-size: 12px;
   color: #888;
   cursor: pointer;
   user-select: none;
+  vertical-align: middle;
   white-space: nowrap;
 }
 

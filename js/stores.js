@@ -83,8 +83,8 @@ const Stores = {
         <span class="store-distance">${distText}</span>
       </div>
       <div class="store-area">${s.area}</div>
-      <div class="store-waves">${waveBadges}</div>
       <div class="store-links">${links}</div>
+      <div class="store-waves">${waveBadges}</div>
     `;
 
     return li;

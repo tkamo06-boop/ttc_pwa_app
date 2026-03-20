@@ -614,7 +614,7 @@ li.locked {
 .store-waves {
   display: flex;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .wave-badge {

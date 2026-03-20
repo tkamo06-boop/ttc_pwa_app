@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTC Color Manager</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TTC Manager">
+<meta name="theme-color" content="#ff9900">
+
+<link rel="stylesheet" href="css/app.css?v=1">
+</head>
+<body>
+  
+<div id="bootSplash" class="boot-splash">
+  <div class="boot-inner">
+    <img src="loading_img.png" class="boot-logo">
+    <div class="boot-spinner"></div>
+    <div class="boot-text">Loading…</div>
+  </div>
+</div>
+
+
+
+<div class="app-header">
+  <div class="title-row">
+    <span>TWO THIN COATS</span>
+    <span id="progressText">0%</span>
+  </div>
+  <div class="progress-bar">
+    <div id="progressFill"></div>
+  </div>
+  <div class="type-filter">
+    <div class="type-chips">
+      <button class="chip active" onclick="App.setType('all', this)">All</button>
+      <button class="chip" onclick="App.setType('shadow', this)">Shadow</button>
+      <button class="chip" onclick="App.setType('midtone', this)">Mid</button>
+      <button class="chip" onclick="App.setType('highlight', this)">Hi</button>
+      <button class="chip" onclick="App.setType('metallic', this)">Metal</button>
+      <button class="chip" onclick="App.setType('wash', this)">Wash</button>
+      <button class="chip" onclick="App.setType('bright', this)">Bright</button>
+      <button class="chip" onclick="App.setType('glaze', this)">Glaze</button>
+      <button class="chip" onclick="App.setType('effect', this)">Effect</button>
+    </div>
+  </div>
+</div>
+
+<ul id="colorList"></ul>
+
+<footer class="app-footer">
+  Provided by <strong>things and craft Inc</strong><br>
+  Official Japanese Distributor of TWO THIN COATS
+</footer>
+
+<div class="bottom-nav">
+  <button class="wave-btn active" data-wave="all">All</button>
+  <button class="wave-btn" data-wave="WAVE1">W1</button>
+  <button class="wave-btn" data-wave="WAVE2">W2</button>
+  <button class="wave-btn" data-wave="WAVE3">W3</button>
+</div>
+
+
+<script src="js/data.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>

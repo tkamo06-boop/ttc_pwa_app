@@ -1,0 +1,21 @@
+{
+  "name": "TTC Color Manager",
+  "short_name": "TTC",
+  "start_url": "/boilerstore/ttc_pwa_app/index.html",
+  "scope": "/boilerstore/ttc_pwa_app/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff9900",
+  "icons": [
+    {
+      "src": "/boilerstore/ttc_pwa_app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/boilerstore/ttc_pwa_app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

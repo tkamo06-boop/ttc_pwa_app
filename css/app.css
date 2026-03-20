@@ -599,22 +599,16 @@ li.locked {
 }
 
 .store-distance {
-  font-size: 12px;
-  color: #888;
+  font-size: 11px;
+  color: #555;
   white-space: nowrap;
-  margin-left: 8px;
-}
-
-.store-area {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 8px;
+  margin-left: auto;
 }
 
 .store-waves {
   display: flex;
+  align-items: center;
   gap: 6px;
-  margin-top: 10px;
 }
 
 .wave-badge {
@@ -627,44 +621,74 @@ li.locked {
   border: 1px solid #ff990044;
 }
 
-.store-links {
-  display: flex;
-  gap: 8px;
+.wave-badge.disabled {
+  background: #1a1a1f;
+  color: #333;
+  border-color: #222;
 }
 
-.store-link-btn {
-  flex: 1;
+.store-name-row {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.store-name-icons {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.store-icon-btn {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 10px 4px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   border: none;
-  font-size: 10px;
-  font-weight: 600;
-  cursor: pointer;
   background: #2a2a30;
-  color: #ccc;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0;
 }
 
-.store-link-btn svg {
-  width: 20px;
-  height: 20px;
+.store-icon-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
-.store-link-btn.ec {
+.store-icon-btn.ec {
   background: #ff990022;
   color: #ff9900;
   border: 1px solid #ff990055;
 }
 
-.store-link-btn:disabled {
+.store-icon-btn.map {
+  background: #2a2a30;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.store-icon-btn:disabled {
   background: #1a1a1f;
-  color: #333;
+  color: #2a2a2a;
   cursor: default;
-  border: 1px solid #222;
+}
+
+.store-address-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.store-address {
+  font-size: 11px;
+  color: #666;
+  flex: 1;
+  line-height: 1.4;
 }
 
 /* ===== FOOTER ===== */

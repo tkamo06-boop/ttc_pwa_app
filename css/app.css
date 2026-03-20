@@ -269,7 +269,7 @@ input[type="checkbox"]{
   gap: 10px;
 }
 
-#authForm input {
+#authForm input:not([type="checkbox"]) {
   width: 100%;
   background: #1a1a1f;
   border: 1px solid #333;
@@ -281,7 +281,7 @@ input[type="checkbox"]{
   outline: none;
 }
 
-#authForm input:focus {
+#authForm input:not([type="checkbox"]):focus {
   border-color: #ff9900;
 }
 

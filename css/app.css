@@ -314,17 +314,14 @@ input[type="checkbox"]{
 }
 
 .remember-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
   color: #888;
   cursor: pointer;
   user-select: none;
-  align-self: flex-start;
-  justify-content: flex-start;
   white-space: nowrap;
-  text-align: left;
 }
 
 .remember-label input[type="checkbox"] {

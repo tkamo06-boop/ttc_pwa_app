@@ -56,6 +56,10 @@ const Auth = {
       e.preventDefault();
       this.toggleMode();
     });
+    document.getElementById("forgotPasswordLink").addEventListener("click", e => {
+      e.preventDefault();
+      this.sendPasswordReset();
+    });
     document.getElementById("logoutBtn").addEventListener("click", () => {
       auth.signOut();
     });
@@ -89,7 +93,24 @@ const Auth = {
     document.querySelector(".auth-switch-text").textContent = isLogin
       ? "アカウントをお持ちでない方は"
       : "すでにアカウントをお持ちの方は";
+    // パスワード再設定リンクはログインモードのみ表示
+    document.getElementById("forgotPasswordWrap").style.display = isLogin ? "" : "none";
     this.clearError();
+  },
+
+  async sendPasswordReset() {
+    const email = document.getElementById("authEmail").value.trim();
+    if (!email) {
+      this.showError("メールアドレスを入力してください");
+      return;
+    }
+    this.clearError();
+    try {
+      await auth.sendPasswordResetEmail(email);
+      this.showSuccess("パスワード再設定メールを送信しました。メールをご確認ください。");
+    } catch (e) {
+      this.showError(this.errorMessage(e.code));
+    }
   },
 
   async submitForm() {
@@ -154,11 +175,21 @@ const Auth = {
   },
 
   showError(msg) {
-    document.getElementById("authError").textContent = msg;
+    const el = document.getElementById("authError");
+    el.textContent = msg;
+    el.className = "auth-error";
+  },
+
+  showSuccess(msg) {
+    const el = document.getElementById("authError");
+    el.textContent = msg;
+    el.className = "auth-success";
   },
 
   clearError() {
-    document.getElementById("authError").textContent = "";
+    const el = document.getElementById("authError");
+    el.textContent = "";
+    el.className = "auth-error";
   },
 
   errorMessage(code, fallback) {

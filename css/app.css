@@ -264,6 +264,29 @@ input[type="checkbox"]{
   text-align: center;
 }
 
+.auth-success {
+  color: #4caf50;
+  font-size: 12px;
+  min-height: 16px;
+  text-align: center;
+}
+
+.forgot-password-wrap {
+  font-size: 12px;
+  text-align: right;
+  margin: -8px 0 4px;
+  width: 100%;
+}
+
+.forgot-password-wrap a {
+  color: #999;
+  text-decoration: none;
+}
+
+.forgot-password-wrap a:hover {
+  color: #ff9900;
+}
+
 #authForm {
   width: 100%;
   display: flex;

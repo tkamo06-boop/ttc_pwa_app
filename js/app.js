@@ -131,7 +131,7 @@ const App = {
 
   async toggleOwned(id, li) {
     if (this.state.owned.has(id)) {
-      if (!await this.showConfirm("所持を解除しますか？")) return;
+      if (!await this.showConfirm(i18n.t("confirm_unown"))) return;
       this.state.owned.delete(id);
       li.classList.remove("owned");
       if (this.state.plan === "paid") {

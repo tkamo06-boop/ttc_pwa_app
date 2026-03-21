@@ -88,11 +88,11 @@ const Auth = {
   toggleMode() {
     this.mode = this.mode === "login" ? "register" : "login";
     const isLogin = this.mode === "login";
-    document.getElementById("authSubmitBtn").textContent = isLogin ? "ログイン" : "新規登録";
-    document.getElementById("authModeToggle").textContent = isLogin ? "新規登録" : "ログインへ戻る";
+    document.getElementById("authSubmitBtn").textContent = isLogin ? i18n.t("login_btn") : i18n.t("register_btn");
+    document.getElementById("authModeToggle").textContent = isLogin ? i18n.t("register_link") : i18n.t("login_back");
     document.querySelector(".auth-switch-text").textContent = isLogin
-      ? "アカウントをお持ちでない方は"
-      : "すでにアカウントをお持ちの方は";
+      ? i18n.t("no_account")
+      : i18n.t("have_account");
     // パスワード再設定リンクはログインモードのみ表示
     document.getElementById("forgotPasswordWrap").style.display = isLogin ? "" : "none";
     this.clearError();
@@ -101,13 +101,13 @@ const Auth = {
   async sendPasswordReset() {
     const email = document.getElementById("authEmail").value.trim();
     if (!email) {
-      this.showError("メールアドレスを入力してください");
+      this.showError(i18n.t("email_required"));
       return;
     }
     this.clearError();
     try {
       await auth.sendPasswordResetEmail(email);
-      this.showSuccess("パスワード再設定メールを送信しました。メールをご確認ください。");
+      this.showSuccess(i18n.t("password_reset_sent"));
     } catch (e) {
       this.showError(this.errorMessage(e.code));
     }
@@ -194,19 +194,20 @@ const Auth = {
 
   errorMessage(code, fallback) {
     const map = {
-      "auth/user-not-found": "メールアドレスが見つかりません",
-      "auth/wrong-password": "パスワードが間違っています",
-      "auth/invalid-credential": "メールアドレスまたはパスワードが正しくありません",
-      "auth/email-already-in-use": "このメールアドレスはすでに使用されています",
-      "auth/invalid-email": "メールアドレスの形式が正しくありません",
-      "auth/weak-password": "パスワードは6文字以上にしてください",
-      "auth/popup-closed-by-user": "ログインがキャンセルされました",
-      "auth/redirect-cancelled-by-user": "ログインがキャンセルされました",
-      "auth/unauthorized-domain": "このドメインはFirebaseに未登録です（Consoleで要追加）",
-      "auth/operation-not-allowed": "このログイン方法は無効です",
-      "auth/network-request-failed": "ネットワークエラーが発生しました",
+      "auth/user-not-found":           "error_user_not_found",
+      "auth/wrong-password":           "error_wrong_password",
+      "auth/invalid-credential":       "error_invalid_credential",
+      "auth/email-already-in-use":     "error_email_in_use",
+      "auth/invalid-email":            "error_invalid_email",
+      "auth/weak-password":            "error_weak_password",
+      "auth/popup-closed-by-user":     "error_popup_closed",
+      "auth/redirect-cancelled-by-user": "error_popup_closed",
+      "auth/unauthorized-domain":      "error_unauthorized_domain",
+      "auth/operation-not-allowed":    "error_operation_not_allowed",
+      "auth/network-request-failed":   "error_network",
     };
-    return map[code] || (fallback ? `エラー: ${fallback}` : "エラーが発生しました");
+    const key = map[code];
+    return key ? i18n.t(key) : (fallback ? `${i18n.t("error_generic")}: ${fallback}` : i18n.t("error_generic"));
   }
 };
 

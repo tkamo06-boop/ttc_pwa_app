@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
 <script>var _V=Date.now();document.write('<link rel="stylesheet" href="css/app.css?v='+_V+'">')</script>
 </head>
 <body>
+  
 
 <div id="bootSplash" class="boot-splash">
   <div class="boot-inner">
@@ -34,10 +35,10 @@
     <div id="authError" class="auth-error"></div>
 
     <form id="authForm">
-      <input type="email" id="authEmail" placeholder="メールアドレス" autocomplete="email" required>
+      <input type="email" id="authEmail" data-i18n-placeholder="email_placeholder" placeholder="Email address" autocomplete="email" required>
       <div class="password-wrap">
-        <input type="password" id="authPassword" placeholder="パスワード（6文字以上）" autocomplete="current-password" required>
-        <button type="button" id="togglePassword" class="password-eye" aria-label="パスワードを表示">
+        <input type="password" id="authPassword" data-i18n-placeholder="password_placeholder" placeholder="Password (6+ characters)" autocomplete="current-password" required>
+        <button type="button" id="togglePassword" class="password-eye" data-i18n-aria="toggle_password_aria" aria-label="Show password">
           <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
           </svg>
@@ -45,22 +46,22 @@
       </div>
       <div class="remember-wrap">
         <input type="checkbox" id="rememberMe">
-        <label for="rememberMe" class="remember-text">メールアドレスを保存する</label>
+        <label for="rememberMe" class="remember-text" data-i18n="remember_me">Remember email</label>
       </div>
-      <button type="submit" id="authSubmitBtn" class="auth-btn-primary">ログイン</button>
+      <button type="submit" id="authSubmitBtn" class="auth-btn-primary" data-i18n="login_btn">Log In</button>
     </form>
 
     <p id="forgotPasswordWrap" class="forgot-password-wrap">
-      <a href="#" id="forgotPasswordLink">パスワードをお忘れですか？</a>
+      <a href="#" id="forgotPasswordLink" data-i18n="forgot_password">Forgot your password?</a>
     </p>
 
-    <div class="auth-divider"><span>または</span></div>
+    <div class="auth-divider"><span data-i18n="or_divider">or</span></div>
 
-    <button id="googleSignInBtn" class="auth-btn-google">Googleでログイン</button>
+    <button id="googleSignInBtn" class="auth-btn-google" data-i18n="google_signin">Sign in with Google</button>
 
     <p class="auth-switch">
-      <span class="auth-switch-text">アカウントをお持ちでない方は</span>
-      <a href="#" id="authModeToggle">新規登録</a>
+      <span class="auth-switch-text" data-i18n="no_account">Don't have an account?</span>
+      <a href="#" id="authModeToggle" data-i18n="register_link">Sign Up</a>
     </p>
   </div>
 </div>
@@ -72,7 +73,7 @@
     <div class="title-row">
       <span>TWO THIN COATS</span>
       <span id="progressText">0%</span>
-      <button id="logoutBtn" class="logout-btn">ログアウト</button>
+      <button id="logoutBtn" class="logout-btn" data-i18n="logout_btn">Log Out</button>
     </div>
     <div class="progress-bar">
       <div id="progressFill"></div>
@@ -112,17 +113,17 @@
 <div id="storeScreen" class="store-screen" style="display:none">
   <div class="store-header">
     <button id="storeBackBtn" class="store-back-btn">&#8592;</button>
-    <span class="store-title">取扱販売店</span>
+    <span class="store-title" data-i18n="store_title">Retailers</span>
   </div>
-  <div id="storeLocating" class="store-locating">現在地を取得中…</div>
+  <div id="storeLocating" class="store-locating" data-i18n="store_locating">Getting your location…</div>
   <ul id="storeList" class="store-list"></ul>
 </div>
 
 <div id="confirmSheet" class="confirm-sheet">
   <div class="confirm-body">
     <p class="confirm-msg"></p>
-    <button id="confirmOk" class="confirm-btn-ok">解除する</button>
-    <button id="confirmCancel" class="confirm-btn-cancel">キャンセル</button>
+    <button id="confirmOk" class="confirm-btn-ok" data-i18n="confirm_ok">Remove</button>
+    <button id="confirmCancel" class="confirm-btn-cancel" data-i18n="confirm_cancel">Cancel</button>
   </div>
 </div>
 
@@ -131,7 +132,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
-['js/data.js','js/app.js','js/firebase.js','js/firestore.js','js/stores.js'].forEach(function(s){
+['js/i18n.js','js/data.js','js/app.js','js/firebase.js','js/firestore.js','js/stores.js'].forEach(function(s){
   document.write('<script src="'+s+'?v='+_V+'"><\/script>');
 });
 </script>
